@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/probah-frontend/static/css/main.2ecaa676.chunk.css",
-    "main.js": "/probah-frontend/static/js/main.4f940b6b.chunk.js",
-    "main.js.map": "/probah-frontend/static/js/main.4f940b6b.chunk.js.map",
-    "runtime~main.js": "/probah-frontend/static/js/runtime~main.ca4a6e68.js",
-    "runtime~main.js.map": "/probah-frontend/static/js/runtime~main.ca4a6e68.js.map",
-    "static/css/2.0a121ef8.chunk.css": "/probah-frontend/static/css/2.0a121ef8.chunk.css",
-    "static/js/2.57e59b96.chunk.js": "/probah-frontend/static/js/2.57e59b96.chunk.js",
-    "static/js/2.57e59b96.chunk.js.map": "/probah-frontend/static/js/2.57e59b96.chunk.js.map",
-    "index.html": "/probah-frontend/index.html",
-    "precache-manifest.7dc3fb30ecda1fd94941d3d57a27d17d.js": "/probah-frontend/precache-manifest.7dc3fb30ecda1fd94941d3d57a27d17d.js",
-    "service-worker.js": "/probah-frontend/service-worker.js",
-    "static/css/2.0a121ef8.chunk.css.map": "/probah-frontend/static/css/2.0a121ef8.chunk.css.map",
-    "static/css/main.2ecaa676.chunk.css.map": "/probah-frontend/static/css/main.2ecaa676.chunk.css.map",
-    "static/media/main.scss": "/probah-frontend/static/media/slick.f97e3bbf.svg"
+    "main.css": "/probah-env/static/css/main.2ecaa676.chunk.css",
+    "main.js": "/probah-env/static/js/main.b83c256c.chunk.js",
+    "main.js.map": "/probah-env/static/js/main.b83c256c.chunk.js.map",
+    "runtime~main.js": "/probah-env/static/js/runtime~main.42be023b.js",
+    "runtime~main.js.map": "/probah-env/static/js/runtime~main.42be023b.js.map",
+    "static/css/2.dff1ad79.chunk.css": "/probah-env/static/css/2.dff1ad79.chunk.css",
+    "static/js/2.57e59b96.chunk.js": "/probah-env/static/js/2.57e59b96.chunk.js",
+    "static/js/2.57e59b96.chunk.js.map": "/probah-env/static/js/2.57e59b96.chunk.js.map",
+    "index.html": "/probah-env/index.html",
+    "precache-manifest.e50d078ee68d92a3253d4b001cdc58e2.js": "/probah-env/precache-manifest.e50d078ee68d92a3253d4b001cdc58e2.js",
+    "service-worker.js": "/probah-env/service-worker.js",
+    "static/css/2.dff1ad79.chunk.css.map": "/probah-env/static/css/2.dff1ad79.chunk.css.map",
+    "static/css/main.2ecaa676.chunk.css.map": "/probah-env/static/css/main.2ecaa676.chunk.css.map",
+    "static/media/main.scss": "/probah-env/static/media/slick.f97e3bbf.svg"
   }
 }
