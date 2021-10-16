@@ -51,64 +51,78 @@ import Analytics from './pages/Analytics';
 
 
 
-import { BrowserRouter, Switch, Route  } from 'react-router-dom';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import * as serviceWorker from './serviceWorker';
+import { ApolloClient, ApolloProvider, HttpLink, InMemoryCache } from '@apollo/client';
+import { AuthProvider } from './context/auth';
+
+const httpLink = new HttpLink({
+    uri: 'https://probah-env.herokuapp.com',
+});
+const client = new ApolloClient({
+    link: httpLink,
+    cache: new InMemoryCache()
+});
+class Root extends Component {
+    render() {
+        return (
+            <AuthProvider>
+                <BrowserRouter basename={'/'}>
+                    <Switch>
+                        {/* <Route exact path={`${process.env.PUBLIC_URL}/`} component={Demo}/> */}
+                        <Route exact path={`${process.env.PUBLIC_URL}/`} component={Home} />
+
+                        <Route exact path={`${process.env.PUBLIC_URL}/defaultbadge`} component={Badge} />
+                        <Route exact path={`${process.env.PUBLIC_URL}/defaultgroup`} component={Group} />
+                        <Route exact path={`${process.env.PUBLIC_URL}/defaultstorie`} component={Storie} />
+                        <Route exact path={`${process.env.PUBLIC_URL}/defaultemailbox`} component={Email} />
+                        <Route exact path={`${process.env.PUBLIC_URL}/defaultemailopen`} component={Emailopen} />
+                        <Route exact path={`${process.env.PUBLIC_URL}/defaultsettings`} component={Settings} />
+                        <Route exact path={`${process.env.PUBLIC_URL}/defaultvideo`} component={Videos} />
+                        <Route exact path={`${process.env.PUBLIC_URL}/defaultanalytics`} component={Analytics} />
 
 
-class Root extends Component{
-    render(){
-        return(
-            <BrowserRouter basename={'/'}>
-                <Switch>
-                    {/* <Route exact path={`${process.env.PUBLIC_URL}/`} component={Demo}/> */}
-                    <Route exact path={`${process.env.PUBLIC_URL}/`} component={Home}/>
+                        <Route exact path={`${process.env.PUBLIC_URL}/accountinformation`} component={Account} />
+                        <Route exact path={`${process.env.PUBLIC_URL}/defaultmember`} component={Member} />
+                        <Route exact path={`${process.env.PUBLIC_URL}/contactinformation`} component={Contactinfo} />
+                        <Route exact path={`${process.env.PUBLIC_URL}/socialaccount`} component={Socialaccount} />
+                        <Route exact path={`${process.env.PUBLIC_URL}/password`} component={Password} />
+                        <Route exact path={`${process.env.PUBLIC_URL}/payment`} component={Payment} />
+                        <Route exact path={`${process.env.PUBLIC_URL}/defaultnotification`} component={Notification} />
+                        <Route exact path={`${process.env.PUBLIC_URL}/helpbox`} component={Helpbox} />
+                        <Route exact path={`${process.env.PUBLIC_URL}/login`} component={Login} />
+                        <Route exact path={`${process.env.PUBLIC_URL}/register`} component={Register} />
+                        <Route exact path={`${process.env.PUBLIC_URL}/forgot`} component={Forgot} />
+                        <Route exact path={`${process.env.PUBLIC_URL}/notfound`} component={Notfound} />
 
-                    <Route exact path={`${process.env.PUBLIC_URL}/defaultbadge`} component={Badge}/>
-                    <Route exact path={`${process.env.PUBLIC_URL}/defaultgroup`} component={Group}/>
-                    <Route exact path={`${process.env.PUBLIC_URL}/defaultstorie`} component={Storie}/>
-                    <Route exact path={`${process.env.PUBLIC_URL}/defaultemailbox`} component={Email}/>
-                    <Route exact path={`${process.env.PUBLIC_URL}/defaultemailopen`} component={Emailopen}/>
-                    <Route exact path={`${process.env.PUBLIC_URL}/defaultsettings`} component={Settings}/>
-                    <Route exact path={`${process.env.PUBLIC_URL}/defaultvideo`} component={Videos}/>
-                    <Route exact path={`${process.env.PUBLIC_URL}/defaultanalytics`} component={Analytics}/>
-                    
-                    
-                    <Route exact path={`${process.env.PUBLIC_URL}/accountinformation`} component={Account}/>
-                    <Route exact path={`${process.env.PUBLIC_URL}/defaultmember`} component={Member}/>
-                    <Route exact path={`${process.env.PUBLIC_URL}/contactinformation`} component={Contactinfo}/>
-                    <Route exact path={`${process.env.PUBLIC_URL}/socialaccount`} component={Socialaccount}/>
-                    <Route exact path={`${process.env.PUBLIC_URL}/password`} component={Password}/>
-                    <Route exact path={`${process.env.PUBLIC_URL}/payment`} component={Payment}/>
-                    <Route exact path={`${process.env.PUBLIC_URL}/defaultnotification`} component={Notification}/>
-                    <Route exact path={`${process.env.PUBLIC_URL}/helpbox`} component={Helpbox}/>
-                    <Route exact path={`${process.env.PUBLIC_URL}/login`} component={Login}/>
-                    <Route exact path={`${process.env.PUBLIC_URL}/register`} component={Register}/>
-                    <Route exact path={`${process.env.PUBLIC_URL}/forgot`} component={Forgot}/>
-                    <Route exact path={`${process.env.PUBLIC_URL}/notfound`} component={Notfound}/>
+                        <Route exact path={`${process.env.PUBLIC_URL}/shop1`} component={ShopOne} />
+                        <Route exact path={`${process.env.PUBLIC_URL}/shop2`} component={ShopTwo} />
+                        <Route exact path={`${process.env.PUBLIC_URL}/shop3`} component={ShopThree} />
+                        <Route exact path={`${process.env.PUBLIC_URL}/singleproduct`} component={Singleproduct} />
+                        <Route exact path={`${process.env.PUBLIC_URL}/cart`} component={Cart} />
+                        <Route exact path={`${process.env.PUBLIC_URL}/checkout`} component={Checkout} />
+                        <Route exact path={`${process.env.PUBLIC_URL}/defaultmessage`} component={Chat} />
+                        <Route exact path={`${process.env.PUBLIC_URL}/defaultlive`} component={Live} />
 
-                    <Route exact path={`${process.env.PUBLIC_URL}/shop1`} component={ShopOne}/>
-                    <Route exact path={`${process.env.PUBLIC_URL}/shop2`} component={ShopTwo}/>
-                    <Route exact path={`${process.env.PUBLIC_URL}/shop3`} component={ShopThree}/>
-                    <Route exact path={`${process.env.PUBLIC_URL}/singleproduct`} component={Singleproduct}/>
-                    <Route exact path={`${process.env.PUBLIC_URL}/cart`} component={Cart}/>
-                    <Route exact path={`${process.env.PUBLIC_URL}/checkout`} component={Checkout}/>
-                    <Route exact path={`${process.env.PUBLIC_URL}/defaultmessage`} component={Chat}/>
-                    <Route exact path={`${process.env.PUBLIC_URL}/defaultlive`} component={Live}/>       
-                    
-                    <Route exact path={`${process.env.PUBLIC_URL}/defaultjob`} component={Job}/>
-                    <Route exact path={`${process.env.PUBLIC_URL}/defaultevent`} component={Event}/>
-                    <Route exact path={`${process.env.PUBLIC_URL}/defaulthotel`} component={Hotel}/>  
-                    <Route exact path={`${process.env.PUBLIC_URL}/grouppage`} component={Grouppage}/>
-                    <Route exact path={`${process.env.PUBLIC_URL}/userpage`} component={Userpage}/>
-                    <Route exact path={`${process.env.PUBLIC_URL}/authorpage`} component={Authorpage}/>  
-                    <Route exact path={`${process.env.PUBLIC_URL}/comingsoon`} component={Comingsoon}/>  
-                    <Route exact path={`${process.env.PUBLIC_URL}/defaulthoteldetails`} component={Hotelsingle}/>
-                    
-                </Switch>
-            </BrowserRouter>
+                        <Route exact path={`${process.env.PUBLIC_URL}/defaultjob`} component={Job} />
+                        <Route exact path={`${process.env.PUBLIC_URL}/defaultevent`} component={Event} />
+                        <Route exact path={`${process.env.PUBLIC_URL}/defaulthotel`} component={Hotel} />
+                        <Route exact path={`${process.env.PUBLIC_URL}/grouppage`} component={Grouppage} />
+                        <Route exact path={`${process.env.PUBLIC_URL}/userpage`} component={Userpage} />
+                        <Route exact path={`${process.env.PUBLIC_URL}/authorpage`} component={Authorpage} />
+                        <Route exact path={`${process.env.PUBLIC_URL}/comingsoon`} component={Comingsoon} />
+                        <Route exact path={`${process.env.PUBLIC_URL}/defaulthoteldetails`} component={Hotelsingle} />
+
+                    </Switch>
+                </BrowserRouter>
+
+            </AuthProvider>
         )
     }
 }
 
-ReactDOM.render(<Root/>, document.getElementById('root'));
+ReactDOM.render(
+    <ApolloProvider client={client}>
+        <Root />
+    </ApolloProvider>, document.getElementById('root'));
 serviceWorker.register();

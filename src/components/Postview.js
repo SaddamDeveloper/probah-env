@@ -1,18 +1,19 @@
-import React,{Component} from 'react';
+import moment from 'moment';
+import 'moment/locale/bn-bd'
+import React, { Component } from 'react';
 
 
 class Postview extends Component {
     state = {
         isOpen: false
     };
-
     toggleOpen = () => this.setState({ isOpen: !this.state.isOpen });
     toggleActive = () => this.setState({ isActive: !this.state.isActive });
-    
+    likePost = () => console.log('like post');
     render() {
-        
-        const {user ,time , des, avater , postimage , postvideo ,id } = this.props;
-        
+        moment.locale('bn-bd');
+        const { user, time, des, avater, postimage, postvideo, likecount, commentcount, id } = this.props;
+
         const menuClass = `${this.state.isOpen ? " show" : ""}`;
         const emojiClass = `${this.state.isActive ? " active" : ""}`;
 
@@ -20,32 +21,32 @@ class Postview extends Component {
             <div className="card w-100 shadow-xss rounded-xxl border-0 p-4 mb-3">
                 <div className="card-body p-0 d-flex">
                     <figure className="avatar me-3"><img src={`assets/images/${avater}`} alt="avater" className="shadow-sm rounded-circle w45" /></figure>
-                    <h4 className="fw-700 text-grey-900 font-xssss mt-1"> {user} <span className="d-block font-xssss fw-500 mt-1 lh-3 text-grey-500"> {time}</span></h4>
+                    <h4 className="fw-700 text-grey-900 font-xssss mt-1"> {user} <span className="d-block font-xssss fw-500 mt-1 lh-3 text-grey-500"> {moment(time).fromNow()}</span></h4>
                     <div className="ms-auto pointer"><i className="ti-more-alt text-grey-900 btn-round-md bg-greylight font-xss"></i></div>
-                    
+
                 </div>
-                {postvideo ?  
-                <div className="card-body p-0 mb-3 rounded-3 overflow-hidden uttam-die">
-                    <a href="/defaultvideo" className="video-btn">
-                        <video autoPlay loop className="float-right w-100">
-                            <source src={`assets/images/${postvideo}`} type="video/mp4" />
-                        </video>
-                    </a>
-                </div>
-                : ''}
+                {postvideo ?
+                    <div className="card-body p-0 mb-3 rounded-3 overflow-hidden uttam-die">
+                        <a href="/defaultvideo" className="video-btn">
+                            <video autoPlay loop className="float-right w-100">
+                                <source src={`assets/images/${postvideo}`} type="video/mp4" />
+                            </video>
+                        </a>
+                    </div>
+                    : ''}
                 <div className="card-body p-0 me-lg-5">
                     <p className="fw-500 text-grey-500 lh-26 font-xssss w-100 mb-2">{des} <a href="/defaultvideo" className="fw-600 text-primary ms-2">See more</a></p>
                 </div>
                 {postimage ?
-                <div className="card-body d-block p-0 mb-3">
-                    <div className="row ps-2 pe-2">
-                        <div className="col-sm-12 p-1"><img src={`assets/images/${postimage}`} className="rounded-3 w-100" alt="post" /></div>                                        
+                    <div className="card-body d-block p-0 mb-3">
+                        <div className="row ps-2 pe-2">
+                            <div className="col-sm-12 p-1"><img src={`assets/images/${postimage}`} className="rounded-3 w-100" alt="post" /></div>
+                        </div>
                     </div>
-                </div>
-                : ''}
+                    : ''}
                 <div className="card-body d-flex p-0">
-                    <div className="emoji-bttn pointer d-flex align-items-center fw-600 text-grey-900 text-dark lh-26 font-xssss me-2" onClick={this.toggleActive}><i className="feather-thumbs-up text-white bg-primary-gradiant me-1 btn-round-xs font-xss"></i> <i className="feather-heart text-white bg-red-gradiant me-2 btn-round-xs font-xss"></i>2.8K Like</div>
-                    <div className={`emoji-wrap pointer ${emojiClass}`}>
+                    <div className="emoji-bttn pointer d-flex align-items-center fw-600 text-grey-900 text-dark lh-26 font-xssss me-2" onClick={this.toggleActive}><i className="feather-thumbs-up text-white bg-primary-gradiant me-1 btn-round-xs font-xss"></i> {likecount} <i className="feather-heart text-white bg-red-gradiant me-2 btn-round-xs font-xss"></i> 23</div>
+                    <div className={`emoji-wrap pointer ${emojiClass}`} onClick={this.likePost}>
                         <ul className="emojis list-inline mb-0">
                             <li className="emoji list-inline-item"><i className="em em---1"></i> </li>
                             <li className="emoji list-inline-item"><i className="em em-angry"></i></li>
@@ -57,10 +58,10 @@ class Postview extends Component {
                             <li className="emoji list-inline-item"><i className="em em-full_moon_with_face"></i></li>
                         </ul>
                     </div>
-                    <a href="/defaultvideo" className="d-flex align-items-center fw-600 text-grey-900 text-dark lh-26 font-xssss"><i className="feather-message-circle text-dark text-grey-900 btn-round-sm font-lg"></i><span className="d-none-xss">22 Comment</span></a>
+                    <a href="/defaultvideo" className="d-flex align-items-center fw-600 text-grey-900 text-dark lh-26 font-xssss"><i className="feather-message-circle text-dark text-grey-900 btn-round-sm font-lg"></i><span className="d-none-xss">{commentcount} মন্তব্য</span></a>
                     <div className={`pointer ms-auto d-flex align-items-center fw-600 text-grey-900 text-dark lh-26 font-xssss ${menuClass}`} id={`dropdownMenu${id}`} data-bs-toggle="dropdown" aria-expanded="false" onClick={this.toggleOpen}><i className="feather-share-2 text-grey-900 text-dark btn-round-sm font-lg"></i><span className="d-none-xs">Share</span></div>
                     <div className={`dropdown-menu dropdown-menu-end p-4 rounded-xxl border-0 shadow-lg right-0 ${menuClass}`} aria-labelledby={`dropdownMenu${id}`}>
-                        <h4 className="fw-700 font-xss text-grey-900 d-flex align-items-center">Share <i className="feather-x ms-auto font-xssss btn-round-xs bg-greylight text-grey-900 me-2"></i></h4>
+                        <h4 className="fw-700 font-xss text-grey-900 d-flex align-items-center">বিতৰণ <i className="feather-x ms-auto font-xssss btn-round-xs bg-greylight text-grey-900 me-2"></i></h4>
                         <div className="card-body p-0 d-flex">
                             <ul className="d-flex align-items-center justify-content-between mt-2">
                                 <li className="me-1"><span className="btn-round-lg pointer bg-facebook"><i className="font-xs ti-facebook text-white"></i></span></li>
