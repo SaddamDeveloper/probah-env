@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useContext } from "react";
 
 import Header from '../components/Header';
 import Leftnav from '../components/Leftnav';
@@ -18,32 +18,14 @@ import Storyslider from '../components/Storyslider';
 import Postview from '../components/Postview';
 import Load from '../components/Load';
 import Profilephoto from '../components/Profilephoto';
-import gql from "graphql-tag";
 import { useQuery } from "@apollo/client";
-import ContentLoader, { Facebook } from 'react-content-loader'
+import ContentLoader from 'react-content-loader'
+import { AuthContext } from "../context/auth";
+import { FETCH_POSTS_QUERY } from '../utils/graphql';
+import { Transition } from 'semantic-ui-react'
 
-const FETCH_POSTS_QUERY = gql`
-{
-    getPosts {
-        id
-        body
-        createdAt
-        username
-        likeCount
-        commentCount
-        likes{
-            username
-        }
-        comments{
-            id
-            username
-            createdAt
-            body
-        }
-    }
-}
-`;
 const Home = () => {
+    const { user } = useContext(AuthContext);
     const { loading, data } = useQuery(FETCH_POSTS_QUERY);
     return (
         <Fragment>
@@ -57,7 +39,9 @@ const Home = () => {
                         <div className="row feed-body">
                             <div className="col-xl-8 col-xxl-9 col-lg-8">
                                 <Storyslider />
-                                <Createpost />
+                                {user && (
+                                    <Createpost />
+                                )}
                                 {loading ? (
                                     <ContentLoader viewBox="0 0 380 70">
                                         {/* Only SVG shapes */}
@@ -65,9 +49,17 @@ const Home = () => {
                                         <rect x="80" y="17" rx="4" ry="4" width="300" height="13" />
                                         <rect x="80" y="40" rx="3" ry="3" width="250" height="10" />
                                     </ContentLoader>
-                                ) : data.getPosts && data.getPosts.map(post => (
-                                    <Postview key={post.id} id={post.id} postvideo="" likecount={post.likeCount} commentcount={post.commentCount} postimage="post.png" avater="user.png" user={post.username} time={post.createdAt} des={post.body} />
-                                ))}
+                                ) :
+                                    (
+                                        <Transition.Group duration="500">
+                                            {
+                                                data.getPosts && data.getPosts.map(post => (
+                                                    <Postview key={post.id} id={post.id} postvideo="" likecount={post.likeCount} commentcount={post.commentCount} postimage="post.png" avater="user.png" user={post.username} time={post.createdAt} des={post.body} />
+                                                ))
+                                            }
+                                        </Transition.Group>
+                                    )
+                                }
                                 <Load />
                             </div>
                             <div className="col-xl-4 col-xxl-3 col-lg-4 ps-lg-0">

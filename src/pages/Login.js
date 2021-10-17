@@ -68,10 +68,10 @@ const Login = (props) => {
                                     <div className="form-check text-left mb-3">
                                         <input type="checkbox" className="form-check-input mt-2" id="exampleCheck5" />
                                         <label className="form-check-label font-xsss text-grey-500">মোক মনত ৰাখিব</label>
-                                        <a href="#" className="fw-600 font-xsss text-grey-700 mt-1 float-right">আপোনাৰ পাছৱৰ্ড পাহৰিছে নেকি?</a>
+                                        <a href="/password" className="fw-600 font-xsss text-grey-700 mt-1 float-right">আপোনাৰ পাছৱৰ্ড পাহৰিছে নেকি?</a>
                                     </div>
                                     <div className="col-sm-12 p-0 text-left">
-                                        <div className="form-group mb-1"><button type="submit" className="form-control text-center style2-input text-white fw-600 bg-dark border-0 p-0 ">লগইন</button></div>
+                                        <div className="form-group mb-1"><button type="submit"  disabled={loading ? disabled : ''} className="form-control text-center style2-input text-white fw-600 bg-dark border-0 p-0 ">{loading ? 'অপেক্ষা কৰক...' : 'লগইন'}</button></div>
                                         <h6 className="text-grey-500 font-xsss fw-500 mt-0 mb-0 lh-32">একাউণ্ট নাই? <a href="/register" className="fw-700 ms-1">এতিয়াই পঞ্জীয়ন কৰক</a></h6>
                                     </div>
                                 </form>

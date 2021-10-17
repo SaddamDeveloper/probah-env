@@ -82,7 +82,7 @@ function Register(props) {
 
                                     </div>
                                     <div className="col-sm-12 p-0 text-left">
-                                        <div className="form-group mb-1"><button type="submit" disabled={loading ? 'disabled' : ''} className="form-control text-center style2-input text-white fw-600 bg-dark border-0 p-0">{loading ? 'অপেক্ষা কৰক...' : 'পঞ্জীয়ন কৰক'}</button></div>
+                                        <div className="form-group mb-1"><button type="submit" disabled={loading ? disabled : ''} className="form-control text-center style2-input text-white fw-600 bg-dark border-0 p-0">{loading ? 'অপেক্ষা কৰক...' : 'পঞ্জীয়ন কৰক'}</button></div>
                                         <h6 className="text-grey-500 font-xsss fw-500 mt-0 mb-0 lh-32">একাওন্ট আছে? <a href="/login" className="fw-700 ms-1">লগইন</a></h6>
                                     </div>
                                 </form>

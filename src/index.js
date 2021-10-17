@@ -55,12 +55,21 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import * as serviceWorker from './serviceWorker';
 import { ApolloClient, ApolloProvider, HttpLink, InMemoryCache } from '@apollo/client';
 import { AuthProvider } from './context/auth';
-
+import { setContext } from "@apollo/client/link/context";
+import AuthRoutes from './AuthRoutes';
 const httpLink = new HttpLink({
     uri: 'https://probah-env.herokuapp.com',
 });
+const authLink = setContext(() => {
+    const token = localStorage.getItem('token');
+    return {
+        headers: {
+            authorization: token ? `Bearer ${token}` : "",
+        }
+    }
+});
 const client = new ApolloClient({
-    link: httpLink,
+    link: authLink.concat(httpLink),
     cache: new InMemoryCache()
 });
 class Root extends Component {
@@ -90,9 +99,9 @@ class Root extends Component {
                         <Route exact path={`${process.env.PUBLIC_URL}/payment`} component={Payment} />
                         <Route exact path={`${process.env.PUBLIC_URL}/defaultnotification`} component={Notification} />
                         <Route exact path={`${process.env.PUBLIC_URL}/helpbox`} component={Helpbox} />
-                        <Route exact path={`${process.env.PUBLIC_URL}/login`} component={Login} />
-                        <Route exact path={`${process.env.PUBLIC_URL}/register`} component={Register} />
-                        <Route exact path={`${process.env.PUBLIC_URL}/forgot`} component={Forgot} />
+                        <AuthRoutes exact path={`${process.env.PUBLIC_URL}/login`} component={Login} />
+                        <AuthRoutes exact path={`${process.env.PUBLIC_URL}/register`} component={Register} />
+                        <AuthRoutes exact path={`${process.env.PUBLIC_URL}/forgot`} component={Forgot} />
                         <Route exact path={`${process.env.PUBLIC_URL}/notfound`} component={Notfound} />
 
                         <Route exact path={`${process.env.PUBLIC_URL}/shop1`} component={ShopOne} />
