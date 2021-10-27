@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "http://saddamdeveloper.github.io/probah-env/static/css/main.2ecaa676.chunk.css",
-    "main.js": "http://saddamdeveloper.github.io/probah-env/static/js/main.bfb10e5e.chunk.js",
-    "main.js.map": "http://saddamdeveloper.github.io/probah-env/static/js/main.bfb10e5e.chunk.js.map",
-    "runtime~main.js": "http://saddamdeveloper.github.io/probah-env/static/js/runtime~main.2e276431.js",
-    "runtime~main.js.map": "http://saddamdeveloper.github.io/probah-env/static/js/runtime~main.2e276431.js.map",
-    "static/css/2.bc528c33.chunk.css": "http://saddamdeveloper.github.io/probah-env/static/css/2.bc528c33.chunk.css",
-    "static/js/2.57e59b96.chunk.js": "http://saddamdeveloper.github.io/probah-env/static/js/2.57e59b96.chunk.js",
-    "static/js/2.57e59b96.chunk.js.map": "http://saddamdeveloper.github.io/probah-env/static/js/2.57e59b96.chunk.js.map",
-    "index.html": "http://saddamdeveloper.github.io/probah-env/index.html",
-    "precache-manifest.b23ab1b90ce1d8d0507bda35e14ab672.js": "http://saddamdeveloper.github.io/probah-env/precache-manifest.b23ab1b90ce1d8d0507bda35e14ab672.js",
-    "service-worker.js": "http://saddamdeveloper.github.io/probah-env/service-worker.js",
-    "static/css/2.bc528c33.chunk.css.map": "http://saddamdeveloper.github.io/probah-env/static/css/2.bc528c33.chunk.css.map",
-    "static/css/main.2ecaa676.chunk.css.map": "http://saddamdeveloper.github.io/probah-env/static/css/main.2ecaa676.chunk.css.map",
-    "static/media/main.scss": "http://saddamdeveloper.github.io/probah-env/static/media/slick.f97e3bbf.svg"
+    "main.css": "/static/css/main.2ecaa676.chunk.css",
+    "main.js": "/static/js/main.a365a015.chunk.js",
+    "main.js.map": "/static/js/main.a365a015.chunk.js.map",
+    "runtime~main.js": "/static/js/runtime~main.a8a9905a.js",
+    "runtime~main.js.map": "/static/js/runtime~main.a8a9905a.js.map",
+    "static/css/2.591657df.chunk.css": "/static/css/2.591657df.chunk.css",
+    "static/js/2.8c6b6127.chunk.js": "/static/js/2.8c6b6127.chunk.js",
+    "static/js/2.8c6b6127.chunk.js.map": "/static/js/2.8c6b6127.chunk.js.map",
+    "index.html": "/index.html",
+    "precache-manifest.3b4aada563a01b5ed8d6eb40b1d17c35.js": "/precache-manifest.3b4aada563a01b5ed8d6eb40b1d17c35.js",
+    "service-worker.js": "/service-worker.js",
+    "static/css/2.591657df.chunk.css.map": "/static/css/2.591657df.chunk.css.map",
+    "static/css/main.2ecaa676.chunk.css.map": "/static/css/main.2ecaa676.chunk.css.map",
+    "static/media/main.scss": "/static/media/slick.f97e3bbf.svg"
   }
 }
