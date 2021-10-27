@@ -2,7 +2,7 @@
   "name": "sociala-react",
   "version": "0.1.0",
   "private": true,
-  "basename": "/",
+  "basename": "/public/",
   "dependencies": {
     "@apollo/client": "^3.4.16",
     "@babel/core": "7.4.3",
