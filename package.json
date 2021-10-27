@@ -2,6 +2,7 @@
   "name": "sociala-react",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://master.diy7xl2mfgipn.amplifyapp.com",
   "basename": "/",
   "dependencies": {
     "@apollo/client": "^3.4.16",
